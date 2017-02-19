@@ -1,8 +1,6 @@
-development/nbproject/private/
-development/build/
-development/nbbuild/
-development/dist/
-development/nbdist/
-development/.nb-gradle/
-/OnlineBakery/nbproject/private/
-/OnlineBakery/build/
+OnlineBakery/nbproject/private/
+OnlineBakery/build/
+OnlineBakery/nbbuild/
+OnlineBakery/dist/
+OnlineBakery/nbdist/
+OnlineBakery/.nb-gradle/
