@@ -4,3 +4,5 @@ OnlineBakery/nbbuild/
 OnlineBakery/dist/
 OnlineBakery/nbdist/
 OnlineBakery/.nb-gradle/
+/project/OnlineBakery/nbproject/private/
+/project/OnlineBakery/build/
