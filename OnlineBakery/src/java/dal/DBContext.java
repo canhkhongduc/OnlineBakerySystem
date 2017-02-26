@@ -1,22 +1,26 @@
 package dal;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 import model.CartItem;
 import model.Product;
 import model.Transaction;
 import model.User;
+import org.hibernate.Session;
+import util.HibernateUtil;
 
 public class DBContext {
+    
+    Session session = null;
 
-    public Connection getConnection() {
-        // Note: connection info should not be hardcoded here
-        // Use a config instead
-        throw new UnsupportedOperationException();
+    public DBContext() {
+        this.session = HibernateUtil.getSessionFactory().getCurrentSession();
     }
     
     public boolean addUser(User user) {
-        throw new UnsupportedOperationException();
+        org.hibernate.Transaction tx = session.beginTransaction();
+        session.save(user);
+        tx.commit();
+        return tx.wasCommitted();
     }
     
     public boolean updateUser() {

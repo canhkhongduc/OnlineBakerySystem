@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 26, 2017 7:54:19 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Status" table="Status" schema="dbo" catalog="OnlineBakery" optimistic-lock="version">
+        <id name="statusId" type="boolean">
+            <column name="StatusID" />
+            <generator class="assigned" />
+        </id>
+        <property name="description" type="serializable">
+            <column name="Description" not-null="true" />
+        </property>
+        <set name="transactions" table="Transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="StatusID" not-null="true" />
+            </key>
+            <one-to-many class="model.Transaction" />
+        </set>
+    </class>
+</hibernate-mapping>

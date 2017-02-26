@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 26, 2017 7:54:19 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Product" table="Product" schema="dbo" catalog="OnlineBakery" optimistic-lock="version">
+        <id name="productId" type="int">
+            <column name="ProductID" />
+            <generator class="assigned" />
+        </id>
+        <property name="productName" type="serializable">
+            <column name="ProductName" not-null="true" />
+        </property>
+        <property name="description" type="serializable">
+            <column name="Description" not-null="true" />
+        </property>
+        <property name="stock" type="int">
+            <column name="Stock" not-null="true" />
+        </property>
+        <property name="price" type="double">
+            <column name="Price" precision="53" scale="0" not-null="true" />
+        </property>
+        <property name="url" type="string">
+            <column name="Url" length="50" not-null="true" />
+        </property>
+        <set name="cartItems" table="CartItem" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ProductID" not-null="true" />
+            </key>
+            <one-to-many class="model.CartItem" />
+        </set>
+        <set name="reviews" table="Review" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ProductID" not-null="true" />
+            </key>
+            <one-to-many class="model.Review" />
+        </set>
+    </class>
+</hibernate-mapping>

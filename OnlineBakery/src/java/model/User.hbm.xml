@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 26, 2017 7:54:19 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.User" table="User" schema="dbo" catalog="OnlineBakery" optimistic-lock="version">
+        <id name="userId" type="int">
+            <column name="UserID" />
+            <generator class="assigned" />
+        </id>
+        <property name="username" type="string">
+            <column name="Username" length="30" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="Password" length="166" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="50" not-null="true" />
+        </property>
+        <property name="fullname" type="serializable">
+            <column name="Fullname" not-null="true" />
+        </property>
+        <property name="address" type="serializable">
+            <column name="Address" />
+        </property>
+        <property name="phone" type="string">
+            <column name="Phone" length="12" />
+        </property>
+        <property name="gender" type="boolean">
+            <column name="Gender" not-null="true" />
+        </property>
+        <property name="birthdate" type="date">
+            <column name="Birthdate" length="10" not-null="true" />
+        </property>
+        <property name="isAdmin" type="boolean">
+            <column name="IsAdmin" not-null="true" />
+        </property>
+        <set name="reviews" table="Review" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UserID" not-null="true" />
+            </key>
+            <one-to-many class="model.Review" />
+        </set>
+        <set name="transactions" table="Transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UserID" not-null="true" />
+            </key>
+            <one-to-many class="model.Transaction" />
+        </set>
+    </class>
+</hibernate-mapping>
