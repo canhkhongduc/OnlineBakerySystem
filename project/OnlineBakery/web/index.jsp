@@ -6,7 +6,7 @@
     </head>
     <body>
         <%@ include file="WEB-INF/jspf/navbar.jspf" %>
-        <div id='header'>
+        <div id="header">
             <span id="headerDescription" class="green-text">Beautiful design<br>Exceptional taste</span>
         </div>
 

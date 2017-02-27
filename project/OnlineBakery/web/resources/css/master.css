@@ -1,5 +1,5 @@
 #header{
-    background-image: url('img/cake2.jpg');
+    background-image: url('../img/cake2.jpg');
     background-size: cover;
     height: 50em;
 }
